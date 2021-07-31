@@ -89,37 +89,166 @@ class HomeController extends Controller
         ->where('jenis','Pengeluaran')
         ->first();
 
-        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        // for($bulan=1;$bulan < 13;$bulan++){
-        // $grafik_pemasukan = DB::table('transaksi')
-        // ->select(DB::raw('SUM(nominal) as total'))
-        // ->where('jenis','pemasukan')
-        // ->whereYear('tanggal', date('Y'))
-        // ->groupBy(\DB::raw("Month(tanggal)"))
-        // ->pluck('total');
-        // }
+        // Grafik Pemasukan
 
-        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        // for($bulan=1;$bulan < 13;$bulan++){
-        // $chartuser     = collect(DB::SELECT("SELECT count(UserID) AS jumlah from f_tblusers where month(created_at)='$bulan'"))->first();
-        // $jumlah_user[] = $chartuser->jumlah;
+        $grafik_pemasukan_januari = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 1, nominal, 0)) as jan'))
+        ->where('jenis','Pemasukan')
+        ->first();
 
-            // $grafik_pemasukan
-        
-    
+        $grafik_pemasukan_febuari = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 2, nominal, 0)) as feb'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_maret = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 3, nominal, 0)) as mar'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_april = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 4, nominal, 0)) as apr'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_mei = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 5, nominal, 0)) as may'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_juni = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 6, nominal, 0)) as jun'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_juli = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 7, nominal, 0)) as jul'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_agustus = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 8, nominal, 0)) as aug'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_september = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 9, nominal, 0)) as sep'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_oktober = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 10, nominal, 0)) as oct'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_november = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 11, nominal, 0)) as nov'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        $grafik_pemasukan_desember = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 12, nominal, 0)) as des'))
+        ->where('jenis','Pemasukan')
+        ->first();
+
+        //Grafik Pengeluaran
+
+        $grafik_pengeluaran_januari = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 1, nominal, 0)) as jan'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_febuari = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 2, nominal, 0)) as feb'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_maret = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 3, nominal, 0)) as mar'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_april = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 4, nominal, 0)) as apr'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_mei = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 5, nominal, 0)) as may'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_juni = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 6, nominal, 0)) as jun'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_juli = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 7, nominal, 0)) as jul'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_agustus = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 8, nominal, 0)) as aug'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_september = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 9, nominal, 0)) as sep'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_oktober = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 10, nominal, 0)) as oct'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_november = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 11, nominal, 0)) as nov'))
+        ->where('jenis','Pengeluaran')
+        ->first();
+
+        $grafik_pengeluaran_desember = DB::table('transaksi')
+        ->select(DB::raw('SUM(IF( MONTH(tanggal) = 12, nominal, 0)) as des'))
+        ->where('jenis','Pengeluaran')
+        ->first();
 
         return view('app.index',
             [
-                'pemasukan_hari_ini' => $pemasukan_hari_ini, 
+                'pemasukan_hari_ini' => $pemasukan_hari_ini,
                 'pemasukan_bulan_ini' => $pemasukan_bulan_ini,
                 'pemasukan_tahun_ini' => $pemasukan_tahun_ini,
                 'seluruh_pemasukan' => $seluruh_pemasukan,
-                'pengeluaran_hari_ini' => $pengeluaran_hari_ini, 
+                'pengeluaran_hari_ini' => $pengeluaran_hari_ini,
                 'pengeluaran_bulan_ini' => $pengeluaran_bulan_ini,
                 'pengeluaran_tahun_ini' => $pengeluaran_tahun_ini,
                 'seluruh_pengeluaran' => $seluruh_pengeluaran,
                 'kategori' => $kategori,
                 'transaksi' => $transaksi,
+                'grafik_pemasukan_januari' => $grafik_pemasukan_januari,
+                'grafik_pemasukan_febuari' => $grafik_pemasukan_febuari,
+                'grafik_pemasukan_maret' => $grafik_pemasukan_maret,
+                'grafik_pemasukan_april' => $grafik_pemasukan_april,
+                'grafik_pemasukan_mei' => $grafik_pemasukan_mei,
+                'grafik_pemasukan_juni' => $grafik_pemasukan_juni,
+                'grafik_pemasukan_juli' => $grafik_pemasukan_juli,
+                'grafik_pemasukan_agustus' => $grafik_pemasukan_agustus,
+                'grafik_pemasukan_september' => $grafik_pemasukan_september,
+                'grafik_pemasukan_oktober' => $grafik_pemasukan_oktober,
+                'grafik_pemasukan_november' => $grafik_pemasukan_november,
+                'grafik_pemasukan_desember' => $grafik_pemasukan_desember,
+                'grafik_pengeluaran_januari' => $grafik_pengeluaran_januari,
+                'grafik_pengeluaran_febuari' => $grafik_pengeluaran_febuari,
+                'grafik_pengeluaran_maret' => $grafik_pengeluaran_maret,
+                'grafik_pengeluaran_april' => $grafik_pengeluaran_april,
+                'grafik_pengeluaran_mei' => $grafik_pengeluaran_mei,
+                'grafik_pengeluaran_juni' => $grafik_pengeluaran_juni,
+                'grafik_pengeluaran_juli' => $grafik_pengeluaran_juli,
+                'grafik_pengeluaran_agustus' => $grafik_pengeluaran_agustus,
+                'grafik_pengeluaran_september' => $grafik_pengeluaran_september,
+                'grafik_pengeluaran_oktober' => $grafik_pengeluaran_oktober,
+                'grafik_pengeluaran_november' => $grafik_pengeluaran_november,
+                'grafik_pengeluaran_desember' => $grafik_pengeluaran_desember
             ]
         );
     }
@@ -271,7 +400,7 @@ class HomeController extends Controller
     }
 
     public function laporan_print()
-    {       
+    {
         if(isset($_GET['kategori'])){
             $kategori = Kategori::orderBy('kategori','asc')->get();
             if($_GET['kategori'] == ""){
@@ -317,7 +446,7 @@ class HomeController extends Controller
 
         // menyimpan data file yang diupload ke variabel $file
         $file = $request->file('foto');
-        
+
         // cek jika gambar kosong
         if($file != ""){
             // menambahkan waktu sebagai pembuat unik nnama file gambar
@@ -329,8 +458,8 @@ class HomeController extends Controller
         }else{
             $nama_file = "";
         }
- 
- 
+
+
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
@@ -361,7 +490,7 @@ class HomeController extends Controller
         $email = $req->input('email');
         $password = $req->input('password');
         $level = $req->input('level');
-        
+
 
         $user = User::find($id);
         $user->name = $name;
@@ -372,7 +501,7 @@ class HomeController extends Controller
 
         // menyimpan data file yang diupload ke variabel $file
         $file = $req->file('foto');
-        
+
         // cek jika gambar tidak kosong
         if($file != ""){
             // menambahkan waktu sebagai pembuat unik nnama file gambar
@@ -402,5 +531,5 @@ class HomeController extends Controller
 
         return redirect(route('user'))->with("success","User telah dihapus!");
     }
-    
+
 }

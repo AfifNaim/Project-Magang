@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Jul 2021 pada 05.44
+-- Waktu pembuatan: 31 Jul 2021 pada 20.24
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.4.20
 
@@ -126,7 +126,9 @@ INSERT INTO `transaksi` (`id`, `tanggal`, `jenis`, `kategori_id`, `nominal`, `ke
 (58, '2021-07-28', 'Pemasukan', 1, 100000, 'ngepet', '2021-07-28 15:16:58', '2021-07-28 15:16:58'),
 (59, '2021-07-28', 'Pengeluaran', 1, 10000, NULL, '2021-07-28 15:17:39', '2021-07-28 15:18:10'),
 (60, '2021-06-24', 'Pemasukan', 56, 10000000, 'Dapet bonus gan', '2021-07-29 03:34:57', '2021-07-29 03:34:57'),
-(61, '2021-07-29', 'Pengeluaran', 48, 500000, 'Beli bahan kain', '2021-07-29 03:35:27', '2021-07-29 03:35:27');
+(61, '2021-07-29', 'Pengeluaran', 48, 500000, 'Beli bahan kain', '2021-07-29 03:35:27', '2021-07-29 03:35:27'),
+(62, '2021-01-01', 'Pemasukan', 50, 50, NULL, '2021-07-31 17:33:45', '2021-07-31 17:33:45'),
+(63, '2021-01-01', 'Pemasukan', 50, 10000, NULL, '2021-07-31 17:54:00', '2021-07-31 17:54:00');
 
 -- --------------------------------------------------------
 
@@ -224,7 +226,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
