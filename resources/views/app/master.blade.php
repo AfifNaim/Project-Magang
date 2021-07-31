@@ -76,7 +76,7 @@
           <ul class="sidebar-menu">
               
           <li class="menu-text">
-              <li class="menu-header">Dashboard</li>
+              <li class="menu-header"><h2>Dashboard</h2></li>
                 <li>
                     <a href="{{ route('kategori') }}" aria-expanded="false">
                         <span class="nav-text">Data Kategori</span>
@@ -165,11 +165,11 @@
   <!-- Template JS File -->
   <script src="{{ asset('stisla/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('stisla/assets/js/custom.js') }}"></script>
-
+  
   <!-- Page Specific JS File -->
   <script src="{{ asset('stisla/assets/js/page/index.js') }}"></script>
   <script src="{{ asset('stisla/assets/js/page/components-statistic.js') }}"></script>
-
+  <script src="{{ asset('stisla/assets/js/page/modules-chartjs.js') }}"></script>
 
 
 </body>

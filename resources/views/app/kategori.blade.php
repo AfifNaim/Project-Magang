@@ -15,8 +15,7 @@
         <li class="breadcrumb-item active">Kategori</a></li>
       </ol>
     </div>
-
-    </section>
+  </section>
 
   <div class="container-fluid">
     <div class="card">
@@ -147,7 +146,7 @@
                           </div>
                           <div class="modal-body">
 
-                            <p>Yakin ingin menghapus data ini ?</p>
+                            <p>Yakin ingin menghapus data ini? Nanti jadi tidak berkategori lho</p>
 
                             @csrf
                             {{ method_field('DELETE') }}
