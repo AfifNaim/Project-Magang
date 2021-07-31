@@ -89,21 +89,24 @@ class HomeController extends Controller
         ->where('jenis','Pengeluaran')
         ->first();
 
-        $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        for($bulan=1;$bulan < 13;$bulan++){
-        $grafik_pemasukan = DB::table('transaksi')
-        ->select(DB::raw('SUM(nominal) as total'))
-        ->where('jenis','pemasukan')
-        ->whereYear('tanggal', date('Y'))
-        ->groupBy(\DB::raw("Month(tanggal)"))
-        ->pluck('total');
-        }
+        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        // for($bulan=1;$bulan < 13;$bulan++){
+        // $grafik_pemasukan = DB::table('transaksi')
+        // ->select(DB::raw('SUM(nominal) as total'))
+        // ->where('jenis','pemasukan')
+        // ->whereYear('tanggal', date('Y'))
+        // ->groupBy(\DB::raw("Month(tanggal)"))
+        // ->pluck('total');
+        // }
 
-        $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        for($bulan=1;$bulan < 13;$bulan++){
-        $chartuser     = collect(DB::SELECT("SELECT count(UserID) AS jumlah from f_tblusers where month(created_at)='$bulan'"))->first();
-        $jumlah_user[] = $chartuser->jumlah;
-        }
+        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        // for($bulan=1;$bulan < 13;$bulan++){
+        // $chartuser     = collect(DB::SELECT("SELECT count(UserID) AS jumlah from f_tblusers where month(created_at)='$bulan'"))->first();
+        // $jumlah_user[] = $chartuser->jumlah;
+
+            // $grafik_pemasukan
+        
+    
 
         return view('app.index',
             [
@@ -117,7 +120,6 @@ class HomeController extends Controller
                 'seluruh_pengeluaran' => $seluruh_pengeluaran,
                 'kategori' => $kategori,
                 'transaksi' => $transaksi,
-                'grafik_pemasukan' => $grafik_pemasukan,
             ]
         );
     }

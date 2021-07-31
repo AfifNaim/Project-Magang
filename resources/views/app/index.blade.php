@@ -105,12 +105,53 @@
   </div>
 
   Pemasukan Bulanan
-  <div style="width: 500px;height: 500px">
-		<canvas id="myChart"></canvas>
-	</div>
-
- </div>
-
-
+<script type="text/javascript">
+    
+   
+    Highcharts.chart('container', {
+        title: {
+            text: 'Pengguna Baru, 2020'
+        },
+        subtitle: {
+            text: 'Source: serambilaravel.com'
+        },
+         xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Jumlah Pengguna Mendafatar'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true
+            }
+        },
+        series: [{
+            name: 'Pengguna Baru',
+            data: users
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 200
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+});
+</script>
 
 @endsection
