@@ -89,35 +89,39 @@ class HomeController extends Controller
         ->where('jenis','Pengeluaran')
         ->first();
 
-        $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        for($bulan=1;$bulan < 13;$bulan++){
-        $grafik_pemasukan = DB::table('transaksi')
-        ->select(DB::raw('SUM(nominal) as total'))
-        ->where('jenis','pemasukan')
-        ->whereYear('tanggal', date('Y'))
-        ->groupBy(\DB::raw("Month(tanggal)"))
-        ->pluck('total');
-        }
+        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        // for($bulan=1;$bulan < 13;$bulan++){
+        // $grafik_pemasukan = DB::table('transaksi')
+        // ->select(DB::raw('SUM(nominal) as total'))
+        // ->where('jenis','pemasukan')
+        // ->whereYear('tanggal', date('Y'))
+        // ->groupBy(\DB::raw("Month(tanggal)"))
+        // ->pluck('total');
+        // }
 
-        $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        for($bulan=1;$bulan < 13;$bulan++){
-        $chartuser     = collect(DB::SELECT("SELECT count(UserID) AS jumlah from f_tblusers where month(created_at)='$bulan'"))->first();
-        $jumlah_user[] = $chartuser->jumlah;
-        }
+        // $label         = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        // for($bulan=1;$bulan < 13;$bulan++){
+        // $chartuser     = collect(DB::SELECT("SELECT count(UserID) AS jumlah from f_tblusers where month(created_at)='$bulan'"))->first();
+        // $jumlah_user[] = $chartuser->jumlah;
+        // }
 
+        $varA = 90;
+        $varB = 100;
         return view('app.index',
             [
-                'pemasukan_hari_ini' => $pemasukan_hari_ini, 
+                'pemasukan_hari_ini' => $pemasukan_hari_ini,
                 'pemasukan_bulan_ini' => $pemasukan_bulan_ini,
                 'pemasukan_tahun_ini' => $pemasukan_tahun_ini,
                 'seluruh_pemasukan' => $seluruh_pemasukan,
-                'pengeluaran_hari_ini' => $pengeluaran_hari_ini, 
+                'pengeluaran_hari_ini' => $pengeluaran_hari_ini,
                 'pengeluaran_bulan_ini' => $pengeluaran_bulan_ini,
                 'pengeluaran_tahun_ini' => $pengeluaran_tahun_ini,
                 'seluruh_pengeluaran' => $seluruh_pengeluaran,
                 'kategori' => $kategori,
                 'transaksi' => $transaksi,
-                'grafik_pemasukan' => $grafik_pemasukan,
+                'varA' => $varA,
+                'varB' => $varB,
+                // 'grafik_pemasukan' => $grafik_pemasukan,
             ]
         );
     }
@@ -269,7 +273,7 @@ class HomeController extends Controller
     }
 
     public function laporan_print()
-    {       
+    {
         if(isset($_GET['kategori'])){
             $kategori = Kategori::orderBy('kategori','asc')->get();
             if($_GET['kategori'] == ""){
@@ -315,7 +319,7 @@ class HomeController extends Controller
 
         // menyimpan data file yang diupload ke variabel $file
         $file = $request->file('foto');
-        
+
         // cek jika gambar kosong
         if($file != ""){
             // menambahkan waktu sebagai pembuat unik nnama file gambar
@@ -327,8 +331,8 @@ class HomeController extends Controller
         }else{
             $nama_file = "";
         }
- 
- 
+
+
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
@@ -359,7 +363,7 @@ class HomeController extends Controller
         $email = $req->input('email');
         $password = $req->input('password');
         $level = $req->input('level');
-        
+
 
         $user = User::find($id);
         $user->name = $name;
@@ -370,7 +374,7 @@ class HomeController extends Controller
 
         // menyimpan data file yang diupload ke variabel $file
         $file = $req->file('foto');
-        
+
         // cek jika gambar tidak kosong
         if($file != ""){
             // menambahkan waktu sebagai pembuat unik nnama file gambar
@@ -400,5 +404,5 @@ class HomeController extends Controller
 
         return redirect(route('user'))->with("success","User telah dihapus!");
     }
-    
+
 }
