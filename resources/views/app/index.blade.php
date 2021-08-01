@@ -106,7 +106,7 @@
 
 
         <div class="mt-5"></div>
-        <h1>Pemasukan Bulanan</h1>
+        <h1>Grafik Transaksi</h1>
         <div class="col-sm-12">
             <div>
                 <canvas id="myChart"></canvas>
